@@ -5,9 +5,11 @@ import {
   StyleSheet,
   Button,
   Alert,
-  ScrollView
+  ScrollView,
+  Dimensions
 } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { ScreenOrientation } from 'expo';
 
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
@@ -33,6 +35,7 @@ const renderListItem = (value, numOfRound) => (
 );
 
 const GameScreen = props => {
+  // ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT);
   const initialGuess = generateRandomBetween(1, 100, props.userChoice);
   const [currentGuess, setCurrentGuess] = useState(initialGuess);
   const [rounds, setRounds] = useState(0);
@@ -105,8 +108,8 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
-    width: 300,
+    marginTop: Dimensions.get('window').height > 600 ? 30 : 5,
+    width: 400,
     maxWidth: '80%'
   },
   listContainer: {

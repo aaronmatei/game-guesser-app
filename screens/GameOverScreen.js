@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button, Image } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  Button,
+  Image,
+  Dimensions
+} from 'react-native';
 import BodyText from '../components/BodyText';
 import MainButton from '../components/MainButton';
 
@@ -38,7 +45,7 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   imageContainer: {
-    width: 300,
+    width: Dimensions.get('window').width * 0.7,
     height: 300,
     borderRadius: 200,
     borderWidth: 3,
